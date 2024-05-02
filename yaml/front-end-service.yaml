@@ -1,0 +1,13 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8079
+  selector:
+    name: front-end
+  type: ClusterIP
