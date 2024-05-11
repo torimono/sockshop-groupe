@@ -3,20 +3,19 @@ kind: Service
 metadata:
   name: rabbitmq
   annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '9090'
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: '9090'
   labels:
     name: rabbitmq
   namespace: sock-shop
 spec:
   ports:
-    # the port that this service should serve on
   - port: 5672
     name: rabbitmq
     targetPort: 5672
   - port: 9090
     name: exporter
-    targetPort: exporter
+    targetPort: 9090  # Remplacez cette valeur par le bon numéro de port pour l'exporter Prometheus
     protocol: TCP
   selector:
     name: rabbitmq
